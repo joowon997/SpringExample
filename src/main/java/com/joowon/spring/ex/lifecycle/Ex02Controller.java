@@ -8,6 +8,6 @@ public class Ex02Controller {
 	
 	@RequestMapping("/lifecycle/ex02")
 	public String thymeleafEx() {
-		return "lifecycle/ex02.html";
+		return "lifecycle/ex02";
 	}
 }
