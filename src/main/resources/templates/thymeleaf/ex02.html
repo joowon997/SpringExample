@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>반복문</title>
+</head>
+<body>
+	
+	<h2>반복문</h2>
+
+	<h3>1. 숫자 반복</h3>
+	<!-- 0 ~ 4 반복 -->
+	<div th:each="i:${#numbers.sequence(0, 4)}">
+		<span th:text="${i}"></span>
+	</div>
+	
+	<h3>2. 과일 리스트</h3>
+	<!-- 과일 리스트 -->
+	<div th:each="fruit, status:${furitList}">
+		<span th:text="${fruit}"></span>
+		<span th:text="|${status.index} ${status.count}|"></span>
+	</div>
+	
+	<h3>3. 유저 정보</h3>
+		
+		<table border="1">
+			<thead>
+				<tr>
+					<td>이름</td>
+					<td>나이</td>
+					<td>취미</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="user:${userList}">
+					<td th:text="${user.name}">유재석</td>
+					<td th:text="${user.age}">52</td>
+					<td th:text="${user.hobby}">진행하기</td>
+				</tr>
+			</tbody>
+		</table>
+	
+</body>
+</html>
