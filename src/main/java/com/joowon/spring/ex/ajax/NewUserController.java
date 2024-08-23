@@ -46,6 +46,26 @@ public class NewUserController {
 		return resultMap;
 	}
 	
+	// 전달받은 이메일주소가 이미 저장된 주소인지 알려주는 API
+	// email 중복확인 API
+	@GetMapping("/duplicate-email")
+	@ResponseBody
+	public Map<String, Boolean> isDuplicateEmail(
+			@RequestParam("email") String email) {
+		
+		// {"isDuplicate" : true}
+		// {"isDuplicate" : false}
+		Map<String, Boolean> resultMap = new HashMap<>();
+		if(userService.isDuplicateEmail(email)) {
+			resultMap.put("isDuplicate", true);
+		}else {
+			resultMap.put("isDuplicate", false);
+		}
+		
+		return resultMap;
+	}
+	
+	
 	// 사용자 입력 View
 	@GetMapping("/input")
 	public String userInput() {
