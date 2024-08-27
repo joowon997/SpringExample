@@ -10,7 +10,10 @@ import com.joowon.spring.ex.jpa.domain.Student;
 public class StudentController {
 
 	// C, U, D
-	
+	public  createStudent() {
+		// 정주원, 010-1234-5678, jung@naver.com, 개발자
+		
+	}
 	
 	
 	@GetMapping("/jpa/lombok/test")
