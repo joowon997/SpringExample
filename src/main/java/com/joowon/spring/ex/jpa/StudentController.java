@@ -1,18 +1,27 @@
 package com.joowon.spring.ex.jpa;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.joowon.spring.ex.jpa.domain.Student;
+import com.joowon.spring.ex.jpa.service.StudentService;
 
 @Controller
 public class StudentController {
 
+	@Autowired
+	private StudentService studentService;
+	
 	// C, U, D
-	public  createStudent() {
+	@GetMapping("/jpa/student/create")
+	@ResponseBody
+	public Student createStudent() {
 		// 정주원, 010-1234-5678, jung@naver.com, 개발자
-		
+		Student student = studentService.addStudent("정주원", "010-1234-5678", "jung@naver.com", "개발자");
+	
+		return student;
 	}
 	
 	
